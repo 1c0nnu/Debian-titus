@@ -7,7 +7,7 @@ super + x
 	kitty 
 
 # program launcher
-super + r
+super + space
 	rofi -show drun
 
 # make sxhkd reload its configuration files:
@@ -19,10 +19,10 @@ super + b
 	brave-browser-stable
 
 super + p 
-	flameshot full -p /media/drive/Screenshots
+	flameshot full -p ~/Pictures/Screenshots
 
 super + shift + p
-	flameshot gui -p /media/drive/Screenshots
+	flameshot gui -p ~/Pictures/Screenshots
 
 #
 # bspwm hotkeys
@@ -139,3 +139,12 @@ XF86AudioRaiseVolume
 	amixer set Master 5%+
 XF86AudioMute
         amixer set Master toggle
+
+# brightness control
+XF86MonBrightnessUp
+        brightnessctl set +5%
+XF86MonBrightnessDown
+        brightnessctl set 5%-
+# power menu
+alt + F4
+        $HOME/.config/rofi/powermenu/powermenu.sh

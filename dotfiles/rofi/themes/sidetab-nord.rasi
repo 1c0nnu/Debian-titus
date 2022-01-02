@@ -5,8 +5,9 @@
     bg-selected: #282c34;
     grey: #565c64;
     spacing: 2;
-    width: 30em;
+    width: 20em;
     margin: 0;
+    font: "FiraCode Nerd Font Mono 10";
     padding: 0;
 }
 
@@ -57,7 +58,7 @@ element-text {
 element-icon {
     background-color: inherit;
     margin: 0 4px 0 0;
-    size: 25px;
+    size: 22px;
 }
 
 #entry {
