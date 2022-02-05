@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"FantasqueSansMono Nerd Font 14";
+	font:							"FantasqueSansMono Nerd Font 16";
     show-icons:                     false;
 	icon-theme: 					"Papirus";
     drun-display-format:            "{name}";
@@ -42,7 +42,7 @@ textbox-prompt-colon {
 	str: 							"System |";
 	background-color: 				@background-alt;
 	text-color: 					@foreground;
-    padding:                        1% 0.5% 1% 7%;
+    padding:                        1% 0.5% 1% 10%;
 }
 
 inputbar {
@@ -53,7 +53,7 @@ inputbar {
     border:                  		0% 0% 0.2% 0%;
     border-radius:                  0% 0% 0% 0%;
     border-color:                  	@border;
-    margin:                         0% 33.25% 0% 20%;
+    margin:                         0% 28.25% 0% 20%;
     padding:                        0.5%;
     position:                       center;
 }
@@ -71,7 +71,7 @@ mainbox {
     background-color:               @background;
     children:                       [ listview, inputbar ];
     spacing:                        0%;
-    padding:                        5% 0% 5% 13.25%;
+    padding:                        5% 0% 5% 8%;
 }
 
 element {
