@@ -21,3 +21,4 @@ sudo su
  ```
  ./user.sh
  ```
+ copy dunst_logger and rofi_notifier to ~/.local/bin

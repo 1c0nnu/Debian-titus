@@ -138,13 +138,16 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	amixer set Master 5%+
 XF86AudioMute
-        amixer set Master toggle
+    amixer set Master toggle
 
 # brightness control
 XF86MonBrightnessUp
-        brightnessctl set +5%
+    brightnessctl set +5%
 XF86MonBrightnessDown
-        brightnessctl set 5%-
+    brightnessctl set 5%-
 # power menu
 alt + F4
-        $HOME/.config/rofi/powermenu/powermenu.sh
+    $HOME/.config/rofi/powermenu/powermenu.sh
+#lockscreen
+super + z
+    betterlockscreen -l

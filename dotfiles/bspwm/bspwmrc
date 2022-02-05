@@ -5,7 +5,7 @@
 
 #Start polybar first
 bash ~/.config/polybar/launch.sh &
-feh --bg-fill ~/Pictures/Walls/wall.jpg &
+feh --bg-fill ~/Pictures/Walls/nord_lake.png &
 
 # Variable Defines
 color0=#3B4252
@@ -28,15 +28,15 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout us
 
 #Monitor Config
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4
 
 #BSPWM Config
 bspc config border_width        0
-bspc config top_padding         50
-bspc config right_padding       9
-bspc config left_padding        9
-bspc config bottom_padding      9
-bspc config window_gap          2
+bspc config top_padding         42
+bspc config right_padding       0
+bspc config left_padding        0
+bspc config bottom_padding      0
+bspc config window_gap          5
 bspc config top_monocle_padding  0
 bspc config right_monocle_padding 0
 bspc config left_monocle_padding 0
@@ -56,15 +56,16 @@ bspc config external_rules_command "$HOME/.config/bspwm/external_rules.sh"
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a wine desktop='^7' state=floating follow=on
 bspc rule -a variety state=floating
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
+bspc rule -a brave-browser desktop='^1' follow=on
+bspc rule -a celluloid state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a Discord desktop='^6'
-bspc rule -a synergy desktop='^9'
 
 #Auto-Start
 lxpolkit &
 picom --config "$HOME/.config/bspwm/picom.conf" --experimental-backends &
 flameshot &
 bspc desktop -f ^1
+#Turn off screensaver and screen timeout
+xset -dpms
+xset s off

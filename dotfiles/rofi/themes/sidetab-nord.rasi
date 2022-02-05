@@ -2,7 +2,7 @@
     background: #1e222a;
     foreground: #E5E9F0;
     border-color: @background;
-    bg-selected: #282c34;
+    bg-selected: #8FBCBB;
     grey: #565c64;
     spacing: 2;
     width: 20em;
@@ -47,7 +47,7 @@
 
 element selected {
     background-color: @bg-selected;
-    text-color: @foreground;
+    text-color: @background;
 }
 
 element-text {

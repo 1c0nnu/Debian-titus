@@ -19,6 +19,7 @@
 [colors]
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
+background-alt = ${xrdb:background-alt}
 primary = ${xrdb:color6}
 secondary = ${xrdb:color5}
 alert = ${xrdb:color8}
@@ -45,23 +46,26 @@ shade17 = ${xrdb:color0}
 shade18 = ${xrdb:color0}
 
 [bar/bar]
-width = 100%
+width = 99.4%
 height = 37
-offset-x = 0
-offset-y = 0
-;radius = 18.0
+offset-x = 4
+offset-y = 5
+radius = 6.0
 fixed-center = true
 bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+;background-0 = ${colors.background-alt}
+
+
 overline-size = 9
 underline-size = 7
 line-color = ${colors.background}
 
-border-bottom-size = 2
-border-color = ${colors.shade0}
+;border-bottom-size = 2
+;border-color = ${colors.shade0}
 
 padding-left = 1
 padding-right = 1
@@ -76,9 +80,9 @@ font-3 = FiraCode Nerd Font Mono:style=Regular:size=13;4
 font-4 = Font Awesome 5 Free Solid:size=15;4
 font-5 = Noto Color Emoji:scale=17;4
 
-modules-left = launcher sep left bspwm right sep left bsplayout bspmode right
-modules-center = xwindow
-modules-right = left pulseaudio right sep left battery bluetooth vpn dunst redshift right sep left eth wlan right sep left time right sep
+modules-left = launcher sep left bspwm right sep left bsplayout bspmode right sep sep xwindow
+#modules-center = xwindow
+modules-right = left pulseaudio right sep left battery bluetooth dunst right sep left eth wlan right sep left time right
 
 override-redirect = true
 wm-restack = bspwm
@@ -175,12 +179,12 @@ ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+;ws-icon-4 = 5;
+#ws-icon-5 = 6;
+#ws-icon-6 = 7;
+#ws-icon-7 = 8;
+#ws-icon-8 = 9;
+#ws-icon-9 = 10;
 
 label-focused = %icon%
 ;label-focused-padding = 1
@@ -286,7 +290,7 @@ content = ""
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 50
+label-maxlen = 75
 label-empty = Desktop
 
 format = <label>
@@ -328,8 +332,8 @@ format-overline = ${colors.background}
 format-underline = ${colors.background}
 ;format-padding = 1
 
-hook-0 = echo "%{A1:notify-send "DUNST_COMMAND_PAUSE" && polybar-msg hook dunst 2:}  %{A}" &
-hook-1 = echo "%{A1:notify-send "DUNST_COMMAND_RESUME" && polybar-msg hook dunst 1:}  %{A}" &
+hook-0 = echo "%{A1:notify-send "DUNST_COMMAND_PAUSE" && polybar-msg hook dunst 2:}%{A}" &
+hook-1 = echo "%{A1:notify-send "DUNST_COMMAND_RESUME" && polybar-msg hook dunst 1:}%{A}" &
 
 click-middle = rofi_notif_center.sh &
 
@@ -354,7 +358,7 @@ type = internal/pulseaudio
 format-volume = <ramp-volume><label-volume>
 format-volume-background = ${colors.shade16}
 ;label-volume-padding-left = 1
-label-volume = %percentage%%
+label-volume = %percentage%
 label-volume-foreground = ${colors.shade6}
 label-volume-background = ${colors.shade16}
 
@@ -455,14 +459,14 @@ format-discharging-underline = ${colors.background}
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging =  %percentage%% 
+label-charging =  %percentage% 
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = %percentage%% 
+label-discharging = %percentage% 
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
@@ -620,20 +624,21 @@ label = %{A1:~/.config/polybar/polybar-scripts/cal-popup.sh --popup &:}%date%%{A
 [module/time]
 type = internal/date
 interval = 5
-time = "%I:%M %p"
+time = "%H:%M"
+;time = "%H:%M %p"
 ;time-alt = "%A, %B %d %Y"
 format = <label>
 format-background = ${colors.shade16}
 format-prefix-foreground = ${colors.shade2}
 format-foreground = ${colors.shade2}
-format-prefix = " "
+;format-prefix = " "
 ;format-padding = 1
 
 format-overline = ${colors.background}
 format-underline = ${colors.background}
 ;label = %{A1:notify-send -a Date -i /usr/share/icons/Nord-Icon/64x64/apps/office-calendar.svg -u normal -t 3000 "$(date "+%A, %B %d %Y")":}%time%%{A}
 label = %{A1:~/.config/polybar/polybar-scripts/cal-popup.sh --popup &:}%time%%{A}
-;click-left = "~/.config/polybar/polybar-scripts/cal-popup.sh --popup &"
+click-left = "~/.config/polybar/polybar-scripts/cal-popup.sh --popup &"
 
 [module/powermenu]
 type = custom/text
